@@ -21,19 +21,6 @@ public class usr : MonoBehaviour
 
     public Color line_color;
 
-    void Start()
-    {
-        base_go = gameObject;
-
-        line_color = Color.blue;
-    }
-
-    void Update()
-    {
-        CrawlGroup("go", 0, 1);
-        DisplayVisibleGO();
-    }
-
     public GameObject GOfindByIndexGroup(string group, int index)
     {
         string name = string.Concat(group, Convert.ToString(index));
@@ -106,5 +93,20 @@ public class usr : MonoBehaviour
         l.material = new Material(Shader.Find("Sprites/Default"));
         l.startColor = line_color;
         l.endColor = line_color;
+    }
+
+	public void USRoptions(GameObject main, Color opt_color, float opt_range, float opt_scale, float opt_panel_x, float opt_panel_y, float opt_panel_z, float opt_point_size)
+    {
+        base_go = main;
+
+        line_color = opt_color;
+
+        search_range = opt_range;
+        scale = opt_scale;
+        panx = opt_panel_x;
+        pany = opt_panel_y;
+        panz = opt_panel_z;
+
+        point_size = opt_point_size;
     }
 }
